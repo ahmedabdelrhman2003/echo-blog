@@ -46,8 +46,8 @@ return [
 
         'smtp' => [
             'transport' => 'smtp',
-            'host' => env('MAIL_HOST', 'sandbox.smtp.mailtrap.io'),
-            'port' => env('MAIL_PORT', 2525),
+            'host' => env('MAIL_HOST'),
+            'port' => env('MAIL_PORT'),
             'encryption' => env('MAIL_ENCRYPTION', 'tls'),
             'timeout' => null,
             'username' => env('MAIL_USERNAME'),
