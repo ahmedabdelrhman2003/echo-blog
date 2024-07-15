@@ -19,7 +19,8 @@ return new class extends Migration
             $table->mediumText('content');
             $table->foreignId('category_id')->constrained('category');
             $table->enum('featured', [0, 1])->default(0);
-            $table->enum('status', ['approved', 'rejected', 'pending', 'suspended'])->default('pending');
+            $table->enum('approval_status', ['pending', 'approved', 'rejected'])->default('pending');
+            $table->enum('publication_status', ['active', 'suspended']);
             $table->timestamps();
         });
     }

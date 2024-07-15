@@ -8,13 +8,13 @@
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
     <meta content="Coderthemes" name="author" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link rel="shortcut icon" href="{{url('assets/images/favicon.ico')}}">
-    <link href="{{url('assets/css/jquery-jvectormap-1.2.2.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{url('assets/css/bootstrap-material.min.css')}}" rel="stylesheet" type="text/css"
+    <link rel="shortcut icon" href="{{ url('assets/images/favicon.ico') }}">
+    <link href="{{ url('assets/css/jquery-jvectormap-1.2.2.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ url('assets/css/bootstrap-material.min.css') }}" rel="stylesheet" type="text/css"
         id="bs-default-stylesheet" />
-    <link href="{{url('assets/css/app-material.min.css')}}" rel="stylesheet" type="text/css"
+    <link href="{{ url('assets/css/app-material.min.css') }}" rel="stylesheet" type="text/css"
         id="app-default-stylesheet" />
-    <link href="{{url('assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{ url('assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
     <style>
         .jvectormap-label {
             display: none;
@@ -60,19 +60,19 @@
                                                 </a>
                                                 <div class="collapse show" id="sidebarEcommerce">
                                                     <ul class="nav-second-level">
-                                                        <li class="menuitem-active">
-                                                            <a href="{{route('article.all')}}"
+                                                        <li class="">
+                                                            <a href="{{ route('article.all') }}"
                                                                 class="active">Articles</a>
                                                         </li>
                                                         <li>
-                                                            <a href="{{route('articles.pending')}}">Pending
+                                                            <a href="{{ route('articles.pending') }}">Pending
                                                                 Articles</a>
                                                         </li>
                                                         <li>
-                                                            <a href="{{route('category.index')}}">Category</a>
+                                                            <a href="{{ route('category.index') }}">Category</a>
                                                         </li>
                                                         <li>
-                                                            <a href="{{route('manageAuthor.getAuthors')}}">Authors</a>
+                                                            <a href="{{ route('manageAuthor.getAuthors') }}">Authors</a>
                                                         </li>
 
                                                         <li>
@@ -111,13 +111,12 @@
     </div>
     <div class="rightbar-overlay"></div>
 </body>
-<script src="{{url('assets/js/vendor.min.js')}}"></script>
-<script src="{{url('assets/js/jquery.sparkline.min.js')}}"></script>
-<script src="{{url('assets/js/jquery-jvectormap-1.2.2.min.js')}}"></script>
-<script src="{{url('assets/js/jquery-jvectormap-world-mill-en.js')}}">
-</script>
-<script src="{{url('assets/js/dashboard-2.init.js')}}"></script>
-<script src="{{url('assets/js/app.min.js')}}"></script>
+<script src="{{ url('assets/js/vendor.min.js') }}"></script>
+<script src="{{ url('assets/js/jquery.sparkline.min.js') }}"></script>
+<script src="{{ url('assets/js/jquery-jvectormap-1.2.2.min.js') }}"></script>
+<script src="{{ url('assets/js/jquery-jvectormap-world-mill-en.js') }}"></script>
+<script src="{{ url('assets/js/dashboard-2.init.js') }}"></script>
+<script src="{{ url('assets/js/app.min.js') }}"></script>
 @yield('js')
 
 </html>

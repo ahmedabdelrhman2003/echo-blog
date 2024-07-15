@@ -10,43 +10,54 @@ class ArticleController extends Controller
 {
     function articles()
     {
-        $articles = Article::whereIn('status', ['approve', 'suspended', 'rejected'])->select('id', 'title', 'description', 'status', 'featured')->get();
-        return view('dashboard.articles.index', compact($articles));
+        return view('dashboard.articles.index');
     }
     function pendingArticles()
     {
-        $articles = Article::where('status', 'pending');
-        return view('dashboard.articles.index', compact($articles));
+        return view('dashboard.articles.pending');
     }
     function approve($id)
     {
         $article = Article::find($id);
-        $article->status = 'approved';
+        $article->approval_status = 'approved';
+        $article->publication_status = 'active';
         $article->save();
-        return redirect()->back()->with('success', 'the article approved successfully');
+        return redirect()->route('article.all')->with('success', 'the article approved successfully');
     }
     function reject($id)
     {
         $article = Article::find($id);
         $article->status = 'rejected';
         $article->save();
-        return redirect()->back()->with('success', 'the article rejected successfully');
+        return redirect()->route('article.all')->with('success', 'the article rejected successfully');
     }
     function suspend($id)
     {
         $article = Article::find($id);
-        $article->status = 'suspended';
+        $article->publication_status = 'suspended';
         $article->save();
-        return redirect()->back()->with('success', 'the article suspended successfully');
+        return redirect()->route('article.all')->with('success', 'the article suspended successfully');
+    }
+    function activate($id)
+    {
+        $article = Article::find($id);
+        $article->publication_status = 'active';
+        $article->save();
+        return redirect()->route('article.all')->with('success', 'the article suspended successfully');
     }
     function featured($id)
     {
-        $article = Article::find($id);
+        $article = Article::findOrFail($id);
         $article->featured = 1;
     }
     function unFeatured($id)
     {
-        $article = Article::find($id);
+        $article = Article::findOrFail($id);
         $article->featured = 0;
+    }
+    function show($id)
+    {
+        $article = Article::findOrFail($id);
+        return view('dashboard.articles.show', compact($article));
     }
 }

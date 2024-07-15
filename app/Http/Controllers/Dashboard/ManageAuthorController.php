@@ -43,17 +43,17 @@ class ManageAuthorController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function storeAuthor(StoreAuthorRequest $request)
+    public function storeAuthor(Request $request)
     {
-        $photoName = $this->uploadPhoto($request->image, 'authors');
-        $author = new Author;
-        $author->name = $request->name;
-        $author->email = $request->email;
-        $author->image = $photoName;
-        $author->save();
-        $url = URL::temporarySignedRoute('password.create', now()->addMinutes(30), ['id' => $author->id]);
+        // $photoName = $this->uploadPhoto($request->image, 'authors');
+        // $author = new Author;
+        // $author->name = $request->name;
+        // $author->email = $request->email;
+        // $author->image = $photoName;
+        // $author->save();
+        $url = URL::temporarySignedRoute('password.create', now()->addMinutes(30), ['id' => 5]);
 
-        Mail::to($author->email)->send(new CreatePasswordEmail());
+        Mail::to('example@gmial.com')->send(new CreatePasswordEmail());
 
         // CreatePasswordMail::dispatch($url, $author->email);
         return redirect()->route('manageAuthor.getAuthors');

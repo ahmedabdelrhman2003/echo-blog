@@ -1,10 +1,10 @@
 @extends('dashboard.layout')
-@section('title', 'Authors')
+@section('title', 'Articles')
 @section('css')
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.2/css/buttons.dataTables.min.css">
 @endsection
-@section('js')
+{{-- @section('js')
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <!-- Include DataTables JS -->
     <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
@@ -65,7 +65,7 @@
 
         });
     </script>
-@endsection
+@endsection --}}
 @section('content')
     <div class="row">
         <div class="col-12">
@@ -74,10 +74,10 @@
                     <ol class="breadcrumb m-0">
                         <li class="breadcrumb-item"><a href="javascript: void(0);">UBold</a></li>
                         <li class="breadcrumb-item"><a href="javascript: void(0);">Echo Blog</a></li>
-                        <li class="breadcrumb-item active">Authors</li>
+                        <li class="breadcrumb-item active">Artilces</li>
                     </ol>
                 </div>
-                <h4 class="page-title">Authos</h4>
+                <h4 class="page-title">Articles</h4>
             </div>
         </div>
     </div>
@@ -100,13 +100,7 @@
                             </div>
                         @endif
                     </div>
-                    <div class="col-lg-4">
 
-                        <div class="text-lg-right mt-3 mt-lg-0">
-                            <a href="{{ route('manageAuthor.create') }}" class="btn btn-danger waves-effect waves-light"><i
-                                    class="mdi mdi-plus-circle mr-1"></i> Add New</a>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -121,9 +115,10 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>image</th>
-                                    <th>name</th>
-                                    <th>email</th>
+                                    <th>title</th>
+                                    <th>description</th>
+                                    <th>category</th>
+                                    <th>Author</th>
                                     <th>status</th>
                                     <th>Actions</th>
                                 </tr>

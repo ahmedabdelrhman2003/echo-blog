@@ -43,6 +43,8 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/approve-article/{id}', [ArticleController::class, 'approve'])->name('article.approve');
     Route::get('/reject-article/{id}', [ArticleController::class, 'reject'])->name('article.reject');
     Route::get('/suspend-article/{id}', [ArticleController::class, 'suspend'])->name('article.suspend');
+    Route::get('/activate-article/{id}', [ArticleController::class, 'activate'])->name('article.activate');
+    Route::get('/article/{id}', [ArticleController::class, 'show'])->name('article.view');
 });
 
 
