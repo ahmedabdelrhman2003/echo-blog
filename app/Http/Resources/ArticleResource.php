@@ -17,15 +17,16 @@ class ArticleResource extends JsonResource
         return [
             'id' => $this->id,
             'title' => $this->title,
-            'status' => $this->status,
+            'approval_status' => $this->approval_status,
             'description' => $this->description,
             'post' => $this->post,
             'image' => $this->asset('assets/images/articles/' . $this->image),
             'content' => $this->whenHas('content', function () {
                 return $this->content;
             }),
-            'updated_at' => $this->updated_at,
-            'created_at' => $this->created_at,
+            'author_name' => $this->author->name,
+            // 'updated_at' => $this->updated_at,
+            // 'created_at' => $this->created_at,
         ];
     }
 }

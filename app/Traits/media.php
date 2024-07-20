@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\traits;
+namespace App\traits;
 
 use Illuminate\Support\Str;
 

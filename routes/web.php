@@ -25,6 +25,8 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/activate-author/{id}', [ManageAuthorController::class, 'activateAuthor'])->name('manageAuthor.activate');
     Route::get('get-authors-data-table', [DataTableController::class, 'getAuthorsDataTable'])->name('data-table.authors');
     Route::get('get-categories-data-table', [DataTableController::class, 'getCategoriesDataTable'])->name('data-table.categories');
+    Route::get('get-articles-data-table', [DataTableController::class, 'getArticlesDataTable'])->name('data-table.articles');
+    Route::get('get-pending-articles-data-table', [DataTableController::class, 'getPendingArticlesDataTable'])->name('data-table.pending-articles');
 
     Route::get('/categories', [CategoryController::class, 'index'])->name('category.index');
     Route::get('/create-category', [CategoryController::class, 'create'])->name('category.create');

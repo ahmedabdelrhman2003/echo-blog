@@ -47,17 +47,21 @@ class ArticleController extends Controller
     }
     function featured($id)
     {
-        $article = Article::findOrFail($id);
-        $article->featured = 1;
+        $article = Article::find($id);
+        $article->featured = '1';
+        $article->save();
+        return redirect()->route('article.all')->with('success', 'the article mark as featured successfully');
     }
     function unFeatured($id)
     {
         $article = Article::findOrFail($id);
-        $article->featured = 0;
+        $article->featured = '0';
+        $article->save();
+        return redirect()->route('article.all')->with('success', 'the article mark as un featured successfully');
     }
     function show($id)
     {
         $article = Article::findOrFail($id);
-        return view('dashboard.articles.show', compact($article));
+        return view('dashboard.articles.show', compact('article'));
     }
 }

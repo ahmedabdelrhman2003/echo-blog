@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api\v1;
 
 use App\Http\Controllers\Controller;
-use App\Http\traits\media;
+use App\traits\media;
 use App\Http\Requests\Authors\StoreArticleRequest;
 use App\Http\Resources\ArticleResource;
 use App\Models\Article;
@@ -36,10 +36,15 @@ class AuthorController extends Controller
             'access_token' => $token,
         ], HttpResponse::HTTP_OK);
     }
+    function profile()
+    {
+        $author = Author::find(Auth::user()->id);
+        return $this->success(['author' => $author], null, Response::HTTP_OK);
+    }
     function storeArticle(StoreArticleRequest $request)
     {
         $author = $request->user();
-        $photoName = $this->uploadPhoto($request->image, 'images/authors');
+        $photoName = $this->uploadPhoto($request->image, 'img/authors');
 
         $article = new Article;
         $article->title = $request->title;

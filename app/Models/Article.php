@@ -11,7 +11,7 @@ class Article extends Model
 {
     use HasFactory;
     protected $table = 'article';
-    public function post(): BelongsTo
+    public function author(): BelongsTo
     {
         return $this->belongsTo(Author::class);
     }

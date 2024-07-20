@@ -4,10 +4,11 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Authors\StoreAuthorRequest;
+use App\Http\traits\media as TraitsMedia;
 use App\Models\Author;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Http\traits\media;
+use App\traits\media;
 use App\Jobs\CreatePasswordMail;
 use App\Mail\CreatePasswordEmail;
 use App\Mail\SuspendAuthorEmail;
@@ -45,15 +46,15 @@ class ManageAuthorController extends Controller
      */
     public function storeAuthor(Request $request)
     {
-        // $photoName = $this->uploadPhoto($request->image, 'authors');
-        // $author = new Author;
-        // $author->name = $request->name;
-        // $author->email = $request->email;
-        // $author->image = $photoName;
-        // $author->save();
+        $photoName = $this->uploadPhoto($request->image, 'authors');
+        $author = new Author;
+        $author->name = $request->name;
+        $author->email = $request->email;
+        $author->image = $photoName;
+        $author->save();
         $url = URL::temporarySignedRoute('password.create', now()->addMinutes(30), ['id' => 5]);
 
-        Mail::to('example@gmial.com')->send(new CreatePasswordEmail());
+        // Mail::to('example@gmial.com')->send(new CreatePasswordEmail());
 
         // CreatePasswordMail::dispatch($url, $author->email);
         return redirect()->route('manageAuthor.getAuthors');
